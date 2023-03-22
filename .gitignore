@@ -1,6 +1,6 @@
 App_Data/
-node_modules/
-artifacts/
+#node_modules/
+#artifacts/
 
 # Visual Studio files
 *.user

@@ -281,3 +281,10 @@ UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [Comment] = @p1, [Concurrenc
 WHERE [Id] = @p20 AND [ConcurrencyStamp] = @p21;
 SELECT @@ROWCOUNT;
 2023-03-21 12:51:26.152 -05:00 [INF] add-admin-user has completed.
+2023-03-22 13:30:36.594 -05:00 [DBG] Hosting starting
+2023-03-22 13:30:36.626 -05:00 [INF] Running update command.
+2023-03-22 13:30:42.445 -05:00 [INF] Processing C:\Users\agunn\.nuget\packages\EPiServer.CMS.Core\12.12.1\tools\epiupdates\sql\7.8.0.sql
+2023-03-22 13:30:42.548 -05:00 [INF] Script validation: -1 - Not an EPiServer database
+2023-03-22 13:31:09.923 -05:00 [INF] Running update command.
+2023-03-22 13:31:14.719 -05:00 [INF] Processing C:\Users\agunn\.nuget\packages\EPiServer.CMS.Core\12.12.1\tools\epiupdates\sql\7.8.0.sql
+2023-03-22 13:31:14.766 -05:00 [INF] Script validation: -1 - Not an EPiServer database
