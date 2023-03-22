@@ -28,6 +28,7 @@ public class Startup
         services
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
+            .AddCommerce()
             .AddCmsTagHelpers()
             .AddAlloy()
             .AddAdminUserRegistration()
