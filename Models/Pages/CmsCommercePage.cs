@@ -18,6 +18,15 @@ namespace CmsCommerce.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 1)]
         public virtual string Title { get; set; }
+        
+        
+        [CultureSpecific]
+        [Display(
+            Name = "Subject",
+            Description = "Subject for the page",
+            GroupName = SystemTabNames.Content,
+            Order = 1)]
+        public virtual string Subject { get; set; }
 
         [CultureSpecific]
         [Display(

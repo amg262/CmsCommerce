@@ -1,9 +1,13 @@
-﻿@model CmsCommercePage
+﻿@model PageViewModel<CmsCommercePage>
+
+@{ Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+
 <div class="container-fluid">
     <div class="row myPage">
         <div class="col-xs-12 col-md-9">
-            <h2>@Html.PropertyFor(x => x.Title)</h2>
-            @Html.PropertyFor(x => x.MainBody)
+            <h1 epi-property="@Model.CurrentPage.Title"></h1>
+            <h3 epi-property="@Model.CurrentPage.Subject"></h3>
+            <div epi-property="@Model.CurrentPage.MainBody"></div>
         </div>
     </div>
 </div>
