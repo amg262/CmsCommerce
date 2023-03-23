@@ -18,6 +18,7 @@ namespace CmsCommerce.Models.Pages;
         typeof(ContainerPage),
         typeof(ProductPage),
         typeof(StandardPage),
+        typeof(CmsCommercePage),
         typeof(ISearchPage),
         typeof(LandingPage),
         typeof(ContentFolder) }, // Pages we can create under the start page...
