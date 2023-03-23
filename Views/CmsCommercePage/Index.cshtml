@@ -5,9 +5,11 @@
 <div class="container-fluid">
     <div class="row myPage">
         <div class="col-xs-12 col-md-9">
-            <h1 epi-property="@Model.CurrentPage.Title"></h1>
-            <h3 epi-property="@Model.CurrentPage.Subject"></h3>
-            <div epi-property="@Model.CurrentPage.MainBody"></div>
+            <h1 epi-property="@Model.CurrentPage.Title">@Model.CurrentPage.Title</h1>
+            <h3 epi-property="@Model.CurrentPage.Subject">@Model.CurrentPage.Subject</h3>
+            <div class="clearfix">
+                <div epi-property="@Model.CurrentPage.MainBody"/>
+            </div>
         </div>
     </div>
 </div>

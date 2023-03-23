@@ -19,7 +19,6 @@ namespace CmsCommerce.Models.Pages
             Order = 1)]
         public virtual string Title { get; set; }
         
-        
         [CultureSpecific]
         [Display(
             Name = "Subject",
