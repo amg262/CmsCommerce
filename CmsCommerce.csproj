@@ -22,4 +22,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Translations\**\*" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\CmsCommercePage\Index.cshtml" />
+  </ItemGroup>
 </Project>
