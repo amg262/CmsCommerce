@@ -17,9 +17,9 @@ public class SiteViewEngineLocationExpander : IViewLocationExpander
             yield return location;
         }
 
-        for (var i = 0; i < AdditionalPartialViewFormats.Length; i++)
+        foreach (var t in AdditionalPartialViewFormats)
         {
-            yield return AdditionalPartialViewFormats[i];
+            yield return t;
         }
     }
 
