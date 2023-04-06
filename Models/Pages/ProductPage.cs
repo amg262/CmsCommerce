@@ -6,6 +6,8 @@ using ILogger = NLog.ILogger;
 
 namespace CmsCommerce.Models.Pages;
 
+
+
 /// <summary>
 /// Used to present a single product
 /// </summary>
