@@ -20,6 +20,8 @@ public class ProductPage : StandardPage, IHasRelatedContent
 {
     private static ILogger logger = LogManager.GetCurrentClassLogger();
 
+    
+    
     [Required]
     [Display(Order = 305)]
     [UIHint(Globals.SiteUIHints.StringsCollection)]
