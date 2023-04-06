@@ -1,5 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using CmsCommerce.Models.Blocks;
+using EPiServer.Commerce.Catalog.ContentTypes;
+using NLog;
+using ILogger = NLog.ILogger;
 
 namespace CmsCommerce.Models.Pages;
 
@@ -12,9 +15,11 @@ namespace CmsCommerce.Models.Pages;
 [SiteImageUrl(Globals.StaticGraphicsFolderPath + "page-type-thumbnail-product.png")]
 [AvailableContentTypes(
     Availability = Availability.Specific,
-    IncludeOn = new[] { typeof(StartPage) })]
+    IncludeOn = new[] {typeof(StartPage)})]
 public class ProductPage : StandardPage, IHasRelatedContent
 {
+    private static ILogger logger = LogManager.GetCurrentClassLogger();
+
     [Required]
     [Display(Order = 305)]
     [UIHint(Globals.SiteUIHints.StringsCollection)]
@@ -25,6 +30,6 @@ public class ProductPage : StandardPage, IHasRelatedContent
         GroupName = SystemTabNames.Content,
         Order = 330)]
     [CultureSpecific]
-    [AllowedTypes(new[] { typeof(IContentData) }, new[] { typeof(JumbotronBlock) })]
+    [AllowedTypes(new[] {typeof(IContentData)}, new[] {typeof(JumbotronBlock)})]
     public virtual ContentArea RelatedContentArea { get; set; }
 }
