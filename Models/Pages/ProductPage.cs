@@ -6,8 +6,6 @@ using ILogger = NLog.ILogger;
 
 namespace CmsCommerce.Models.Pages;
 
-
-
 /// <summary>
 /// Used to present a single product
 /// </summary>
@@ -20,10 +18,9 @@ namespace CmsCommerce.Models.Pages;
     IncludeOn = new[] {typeof(StartPage)})]
 public class ProductPage : StandardPage, IHasRelatedContent
 {
-    private static ILogger logger = LogManager.GetCurrentClassLogger();
+    private static ILogger _logger = LogManager.GetCurrentClassLogger();
 
-    
-    
+
     [Required]
     [Display(Order = 305)]
     [UIHint(Globals.SiteUIHints.StringsCollection)]

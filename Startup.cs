@@ -20,12 +20,14 @@ public class Startup
     {
         if (_webHostingEnvironment.IsDevelopment())
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
+            AppDomain.CurrentDomain.SetData("DataDirectory",
+                Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));
 
             services.Configure<SchedulerOptions>(options => options.Enabled = false);
         }
 
         services
+            .AddLogging()
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCms()
             .AddCommerce()
@@ -43,27 +45,40 @@ public class Startup
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy(name: "Open",
+                builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+        });
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
     {
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }
 
+        //loggerFactory.CreateLogger()
+
         // Required by Wangkanai.Detection
         app.UseDetection();
         app.UseSession();
-
+        // app.UseHsts();
+        // app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
+        // app.UseCors("Open");
         app.UseAuthentication();
         app.UseAuthorization();
 
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapContent();
-        });
+        app.UseEndpoints(endpoints => { endpoints.MapContent(); });
     }
 }

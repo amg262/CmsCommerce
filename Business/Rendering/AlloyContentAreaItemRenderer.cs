@@ -50,7 +50,8 @@ public class AlloyContentAreaItemRenderer
         return cssClass;
     }
 
-    public void RenderContentAreaItemCss(ContentAreaItem contentAreaItem, TagHelperContext context, TagHelperOutput output)
+    public void RenderContentAreaItemCss(ContentAreaItem contentAreaItem, TagHelperContext context,
+        TagHelperOutput output)
     {
         var displayOption = _contentAreaLoader.LoadDisplayOption(contentAreaItem);
         var cssClasses = new StringBuilder();
@@ -58,9 +59,10 @@ public class AlloyContentAreaItemRenderer
         if (displayOption != null)
         {
             cssClasses.Append(displayOption.Tag);
-            cssClasses.Append((string)$" {GetCssClassForTag(displayOption.Tag)}");
+            cssClasses.Append($" {GetCssClassForTag(displayOption.Tag)}");
         }
-        cssClasses.Append((string)$" {GetTypeSpecificCssClasses(contentAreaItem)}");
+
+        cssClasses.Append($" {GetTypeSpecificCssClasses(contentAreaItem)}");
 
         foreach (var cssClass in cssClasses.ToString().Split(' ', StringSplitOptions.RemoveEmptyEntries))
         {
