@@ -46,17 +46,17 @@ public class Startup
             options.Cookie.IsEssential = true;
         });
 
-        services.AddCors(options =>
-        {
-            options.AddPolicy(name: "Open",
-                builder =>
-                {
-                    builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
-                });
-        });
+        // services.AddCors(options =>
+        // {
+        //     options.AddPolicy(name: "Open",
+        //         builder =>
+        //         {
+        //             builder
+        //                 .AllowAnyOrigin()
+        //                 .AllowAnyMethod()
+        //                 .AllowAnyHeader();
+        //         });
+        // });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
@@ -71,7 +71,7 @@ public class Startup
         // Required by Wangkanai.Detection
         app.UseDetection();
         app.UseSession();
-        app.UseHsts();
+        // app.UseHsts();
         // app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
