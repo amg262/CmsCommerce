@@ -13,8 +13,8 @@ public class Program
     }
 
     // This is the same as the above method, but with a different syntax.
-    public static IHostBuilder CreateHostBuilder2(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureCmsDefaults()
-            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+    // public static IHostBuilder CreateHostBuilder2(string[] args) =>
+    //     Host.CreateDefaultBuilder(args)
+    //         .ConfigureCmsDefaults()
+    //         .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
 }

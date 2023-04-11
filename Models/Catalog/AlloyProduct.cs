@@ -1,4 +1,5 @@
-﻿using EPiServer.Commerce.Catalog.ContentTypes;
+﻿using CmsCommerce.Business.Rendering;
+using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Catalog.DataAnnotations;
 
 namespace CmsCommerce.Models.Catalog

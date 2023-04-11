@@ -71,7 +71,7 @@ public class Startup
         // Required by Wangkanai.Detection
         app.UseDetection();
         app.UseSession();
-        // app.UseHsts();
+        app.UseHsts();
         // app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
