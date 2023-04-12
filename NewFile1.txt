@@ -1,0 +1,4 @@
+"ConnectionStrings": {
+    "EPiServerDB": "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\CmsCommerce.mdf;Initial Catalog=CmsCommerce;Integrated Security=True;Connect Timeout=30",
+    "EcfSqlConnection": "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\CmsCommerce.Commerce.mdf;Initial Catalog=CmsCommerce.Commerce;Integrated Security=True;Connect Timeout=30"
+  },

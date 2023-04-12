@@ -7,11 +7,11 @@ using EPiServer.Web.Routing;
 
 namespace CmsCommerce;
 
-public class Startup
+public class Startup2
 {
     private readonly IWebHostEnvironment _webHostingEnvironment;
 
-    public Startup(IWebHostEnvironment webHostingEnvironment)
+    public Startup2(IWebHostEnvironment webHostingEnvironment)
     {
         _webHostingEnvironment = webHostingEnvironment;
     }
@@ -35,9 +35,8 @@ public class Startup
             .AddAlloy()
             .AddAdminUserRegistration()
             .AddEmbeddedLocalization<Startup>();
-
-        // Required by Wangkanai.Detection
-        services.AddDetection();
+        
+        services.AddDetection(); // Required by Wangkanai.Detection
 
         services.AddSession(options =>
         {
@@ -46,17 +45,6 @@ public class Startup
             options.Cookie.IsEssential = true;
         });
 
-        // services.AddCors(options =>
-        // {
-        //     options.AddPolicy(name: "Open",
-        //         builder =>
-        //         {
-        //             builder
-        //                 .AllowAnyOrigin()
-        //                 .AllowAnyMethod()
-        //                 .AllowAnyHeader();
-        //         });
-        // });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
@@ -65,17 +53,10 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-
-        //loggerFactory.CreateLogger()
-
-        // Required by Wangkanai.Detection
-        app.UseDetection();
+        app.UseDetection(); // Required by Wangkanai.Detection
         app.UseSession();
-        // app.UseHsts();
-        // app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
-        // app.UseCors("Open");
         app.UseAuthentication();
         app.UseAuthorization();
 

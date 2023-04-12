@@ -2,14 +2,14 @@
 @using EPiServer.Web.Mvc.Html
 
 @*@model EpiserverCommerce.Models.Catalog.MyNode*@
-@model CommerceTraining.SupportingClasses.NodeEntryCombo
+@model CmsCommerce.Business.SupportingClasses.NodeEntryCombo
 @*<div>
     @Html.PropertyFor(m => m.MainBody)
 </div>*@
 <h2> node </h2>
 <ul>
     <h3>nodes</h3>
-    @foreach (var item in Model.nodes)
+    @foreach (var item in Model.Nodes)
     {
         <li>
             <a href="@item.url">@item.name</a>
@@ -20,13 +20,13 @@
 
 <ul>
     <h3>entries</h3>
-    @foreach (var item in Model.entries)
+    @foreach (var item in Model.Entries)
     {
-    <li>
-        <img height="50" width="50" src="@item.imageUrl" />
-        <a href="@item.url">@item.name</a>
+        <li>
+            <img height="50" width="50" src="@item.imageUrl"/>
+            <a href="@item.url">@item.name</a>
 
-    </li>
+        </li>
     }
 
 </ul>

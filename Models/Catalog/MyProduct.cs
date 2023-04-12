@@ -18,17 +18,14 @@ namespace CmsCommerce.Models.Catalog
 
         public virtual string Brand { get; set; }
 
-       // public virtual IEnumerable<MyVariation> ListOfVariation { get; set; }
+        // public virtual IEnumerable<MyVariation> ListOfVariation { get; set; }
 
         public void SetVariations(ContentReference referenceToProduct)
         {
             var relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
             var variations = relationRepository.GetChildren<ProductVariation>(referenceToProduct);
-           // ListOfVariation = variations;
+            // ListOfVariation = variations;
             //return variations;
         }
-        
-        
-
     }
 }

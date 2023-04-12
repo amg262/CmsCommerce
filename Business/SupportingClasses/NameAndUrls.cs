@@ -1,11 +1,4 @@
-using EPiServer.Commerce.Catalog.ContentTypes;
-using EPiServer.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CommerceTraining.SupportingClasses
+namespace CmsCommerce.Business.SupportingClasses
 {
     public class NameAndUrls
     {

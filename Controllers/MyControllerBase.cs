@@ -1,4 +1,4 @@
-﻿using CommerceTraining.SupportingClasses;
+﻿using CmsCommerce.Business.SupportingClasses;
 using EPiServer.Commerce.Catalog;
 using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Filters;
