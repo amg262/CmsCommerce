@@ -2,10 +2,18 @@
 @using EPiServer.Web.Mvc.Html
 @using EPiServer.Commerce.Catalog.ContentTypes
 @model CmsCommerce.Models.Catalog.MyProduct
-<div>
-    @Html.PropertyFor(m => m.MainBody)
-</div>
+@{
+    Layout = null;
+}
+
+
 <h1>MyProduct </h1>
+<div epi-property="Brand">
+    <h3>@Model.Brand</h3>
+    <h3>@Model.Description</h3>
+    <h3>@Model.Sizing</h3>
+    <h3>@Model.LongDescription</h3>
+</div>
 
 <ul>
     @*@foreach (var item in Model.ListOfVariation)

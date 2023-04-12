@@ -24,9 +24,22 @@
   
   <ItemGroup>
     <EmbeddedResource Include="Resources\Translations\**\*" />
+    <EmbeddedResource Remove="App_Data\**" />
   </ItemGroup>
   
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\CmsCommercePage\Index.cshtml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="App_Data\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Content Remove="App_Data\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="App_Data\**" />
   </ItemGroup>
 </Project>
