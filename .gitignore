@@ -1,7 +1,7 @@
-# App_Data/
-#node_modules/
-#artifacts/
-
+App_Data/
+node_modules/
+artifacts/
+.idea/
 # Visual Studio files
 *.user
 *.lock.json

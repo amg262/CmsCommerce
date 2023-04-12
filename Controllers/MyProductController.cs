@@ -7,7 +7,10 @@ namespace CmsCommerce.Controllers
 {
     public class MyProductController : MyControllerBase<MyProduct>
     {
-        public MyProductController(IContentLoader contentLoader, UrlResolver urlResolver, AssetUrlResolver assetUrlResolver, ThumbnailUrlResolver thumbnailUrlResolver) : base(contentLoader, urlResolver, assetUrlResolver, thumbnailUrlResolver)
+        
+        public MyProductController(IContentLoader contentLoader, UrlResolver urlResolver,
+            AssetUrlResolver assetUrlResolver, ThumbnailUrlResolver thumbnailUrlResolver) : base(contentLoader,
+            urlResolver, assetUrlResolver, thumbnailUrlResolver)
         {
         }
 
@@ -18,6 +21,5 @@ namespace CmsCommerce.Controllers
             currentContent.SetVariations(currentContent.ContentLink);
             return View(currentContent);
         }
-
     }
 }
