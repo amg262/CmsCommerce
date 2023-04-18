@@ -11,10 +11,10 @@ public class CommentHandler : ContentReference
         _contentRepository = contentRepository;
     }
 
-    public Comment CreateAComment()
+    public void CreateAComment()
     {
-        var comment =
-            _contentRepository.GetDefault<Comment>(RootPage, EPiServer.Globalization.ContentLanguage.PreferredCulture);
+        Comment comment =
+            _contentRepository.Get<Comment>(RootPage, EPiServer.Globalization.ContentLanguage.PreferredCulture);
         comment.Name = "acomment";
         comment.User.Email = "user@test.com";
         comment.Body = "This is a comment";
@@ -26,6 +26,6 @@ public class CommentHandler : ContentReference
         System.Diagnostics.Debug.Assert(comment.User.Email == loadedComment.User.Email);
         System.Diagnostics.Debug.Assert(comment.Body == loadedComment.Body);
 
-        return comment;
+        //return comment;
     }
 }
