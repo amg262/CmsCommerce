@@ -45,4 +45,8 @@
   <ItemGroup>
     <None Remove="App_Data\**" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
 </Project>

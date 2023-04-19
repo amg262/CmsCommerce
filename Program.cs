@@ -1,3 +1,4 @@
+using Mediachase.Commerce.Catalog;
 using Serilog;
 
 namespace CmsCommerce;
@@ -33,11 +34,10 @@ public abstract class Program
         if (isDevelopment)
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Warning()
-                .WriteTo.File("App_Data/log.txt", rollingInterval: RollingInterval.Day)
+                .MinimumLevel.Debug()
+                .WriteTo.File("App_Data/log.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
         }
-
 
         CreateHostBuilder(args, isDevelopment).Build().Run();
     }
@@ -94,6 +94,16 @@ public class Startup
                 });
         });
 
+        // Correlates to Caching in appsettings.json
+        services.Configure<CatalogOptions>(o =>
+        {
+            o.Cache.UseCache = true;
+            o.Cache.ContentVersionCacheExpiration = TimeSpan.FromMinutes(05);
+            o.Cache.CollectionCacheExpiration = TimeSpan.FromMinutes(05);
+            o.Cache.EntryCacheExpiration = TimeSpan.FromMinutes(05);
+            o.Cache.NodeCacheExpiration = TimeSpan.FromMinutes(05);
+        });
+
         services
             .AddLogging()
             .AddCmsAspNetIdentity<ApplicationUser>()
@@ -103,9 +113,7 @@ public class Startup
             .AddAlloy()
             .AddAdminUserRegistration()
             .AddEmbeddedLocalization<Startup>();
-        
-        
-        
+
 
         // Opti cookie security policy
         services.ConfigureApplicationCookie(c => c.Cookie.SecurePolicy = _webHostingEnvironment.IsDevelopment()
@@ -131,21 +139,17 @@ public class Startup
         }
 
         app.UseDetection(); // Required by Wangkanai.Detection
-        app.UseSession();
-
-        app.UseHttpsRedirection();
-        app.UseHsts();
-        app.UseStatusCodePagesWithReExecute("/error/{0}");
-
-        app.UseCookiePolicy();
-        app.UseCors("Local");
-        app.UseStaticFiles();
-        app.UseRouting();
-        app.UseAuthentication();
-        app.UseAuthorization();
-
+        app.UseSession(); // Session
+        app.UseHttpsRedirection(); // For security - Adds middleware for redirecting HTTP Requests to HTTPS
+        app.UseHsts(); //Strict-Transport-Security header. For security
+        app.UseStatusCodePagesWithReExecute("/error/{0}"); // For error pages
+        app.UseCookiePolicy(); // For security
+        app.UseCors("Local"); // Add cors for local development
+        app.UseStaticFiles(); // For serving static files and default file names
+        app.UseRouting(); // For routing requests
+        app.UseAuthentication(); // For authentication - These must be in this order
+        app.UseAuthorization(); // For authorization
         //app.UseEndpoints(endpoints => { endpoints.MapContent(); });
-        
         // Endpoint config from Foundation
         app.UseEndpoints(endpoints =>
         {
