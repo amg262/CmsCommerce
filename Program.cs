@@ -59,7 +59,9 @@ public abstract class Program
         }
     }
 }
-
+/// <summary>
+/// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// </summary>
 // STARTUP CLASS
 public class Startup
 {
@@ -138,6 +140,7 @@ public class Startup
             app.UseDeveloperExceptionPage();
         }
 
+        app.UseSerilogRequestLogging(); // Serilog
         app.UseDetection(); // Required by Wangkanai.Detection
         app.UseSession(); // Session
         app.UseHttpsRedirection(); // For security - Adds middleware for redirecting HTTP Requests to HTTPS
